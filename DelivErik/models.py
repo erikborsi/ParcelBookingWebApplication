@@ -6,6 +6,7 @@ class Customer(models.Model):
     customer_unique_ID = models.CharField(max_length=30, blank=False)
     customer_first_name = models.CharField(max_length=30, blank=False)
     customer_last_name = models.CharField(max_length=30, blank=False)
+    customer_company_name = models.CharField(max_length=30, blank=True)
     customer_first_line_address = models.IntegerField(blank=False)
     customer_second_line_address = models.TextField(blank=False)
     customer_postcode = models.TextField(blank=False)
