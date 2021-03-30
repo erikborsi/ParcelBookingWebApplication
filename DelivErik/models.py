@@ -1,6 +1,4 @@
 from django.db import models
-#from phonenumber_field.modelfields import PhoneNumberField
-# from from django.contrib.gis.measure import D, Distance
 
 class Customer(models.Model):
     customer_unique_ID = models.CharField(max_length=30, blank=False)
@@ -16,7 +14,6 @@ class Customer(models.Model):
     def __str__(self):
         return self.customer_unique_ID
     
-
 class Parcel(models.Model):
     STATUS_CHOICES = [('R', 'Recieved'), ('C', 'Collected'), ('D', 'Delivered'), ('X', 'Cancelled')]
     parcel_unique_ID = models.IntegerField(blank=False)
@@ -27,5 +24,5 @@ class Parcel(models.Model):
     parcel_description = models.TextField(blank=False)
     parcel_status_update_time = models.DateField(blank=False)
     parcel_status = models.CharField(max_length=1, choices=STATUS_CHOICES, blank=False)
-    customer = models.ForeignKey('Customer', on_delete=models.CASCADE)
-
+    customer = models.ForeignKey('Customer', on_delete=models.RESTRICT) 
+    
